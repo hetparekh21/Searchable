@@ -54,6 +54,3 @@ trait Searchable
         }
     }
 }
-
-    // try to use relations also
-    // try word wise search
