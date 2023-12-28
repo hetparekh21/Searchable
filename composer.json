@@ -1,0 +1,22 @@
+{
+    "name": "hetparekh21/searchable",
+    "description": "Add simple search functionality to any model",
+    "version": "1.0.0",
+    "keywords": ["laravel", "eloquent", "search", "searchable", "database", "model", "simple"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Hetparekh21\\Searchable\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Het Parekh",
+            "email": "hetparekh21@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.1"
+    }
+}
