@@ -1,6 +1,6 @@
 <?php
 
-namespace hetparekh21\searchable;
+namespace Hetparekh21\Searchable;
 
 /**
  * Trait Searchable
