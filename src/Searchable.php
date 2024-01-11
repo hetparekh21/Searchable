@@ -23,25 +23,15 @@ trait Searchable
 
     protected function getModelColumns(): array
     {
-        $columns = [];
+        $columns = collect($this->getFillable());
 
-        foreach ($this->getFillable() as $column) {
-            if (in_array($column, $this->getExceptions())) {
-                continue;
-            }
-            $columns[] = $column;
+        if (property_exists($this, 'useGuarded') && $this->useGuarded) {
+            $columns = $columns->merge($this->getGuarded())->unique();
         }
 
-        if (isset($this->useGuarded) && $this->useGuarded == true) {
-            foreach ($this->getGuarded() as $column) {
-                if (in_array($column, $this->getExceptions())) {
-                    continue;
-                }
-                $columns[] = $column;
-            }
-        }
+        $columns = $columns->except($this->getExceptions());
 
-        return $columns;
+        return $columns->toArray();
     }
 
     protected function getExceptions(): array
