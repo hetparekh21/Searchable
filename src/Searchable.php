@@ -29,9 +29,9 @@ trait Searchable
             $columns = $columns->merge($this->getGuarded())->unique();
         }
 
-        $columns = $columns->except($this->getExceptions());
-
-        return $columns->toArray();
+        $columns = array_diff($columns->toArray(), $this->getExceptions());
+        
+        return $columns;
     }
 
     protected function getExceptions(): array
